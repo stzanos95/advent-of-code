@@ -14,3 +14,12 @@ class ElfBasket:
 
     def max_calories(self) -> float:
         return max(enumerate(self._elf_calories), key=lambda x: x[1])[1]
+
+    def sum_top_three(self) -> float:
+        return sum(sorted(self._elf_calories)[-1:-4:-1])
+
+
+if __name__ == '__main__':
+    basket = ElfBasket('elf_calories.txt')
+    print(f'Maximum calories: {basket.max_calories()} cal')
+    print(f'Sum of top three gatherers: {basket.sum_top_three()} cal')
