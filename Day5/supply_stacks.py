@@ -9,6 +9,7 @@ class CargoCrane:
         self._stacks = self._get_stacks()
         self._instructions = self._get_instructions()
         self._move_crates()
+        print(self._stacks)
 
     def _move_crates(self):
         pass
@@ -18,12 +19,12 @@ class CargoCrane:
         crate_stacks = []
         for crate_row in crate_rows[::-1]:
             for i, crate in enumerate(chunked(crate_row, 4)):
-                crate_str = ''.join(crate).strip()
-                if crate_str != '':
+                crate_letter = ''.join(crate).strip().replace('[', '').replace(']', '')
+                if crate_letter != '':
                     try:
-                        crate_stacks[i].append(crate_str)
+                        crate_stacks[i].append(crate_letter)
                     except IndexError:
-                        crate_stacks.append([crate_str])
+                        crate_stacks.append([crate_letter])
         return crate_stacks
 
     def _get_instructions(self) -> dict:
