@@ -7,7 +7,7 @@ class CargoCrane:
         with open(filename, 'r') as f:
             self._data = f.read().splitlines()
         self._stacks = self._get_stacks()
-        self._directions = self._get_directions()
+        self._instructions = self._get_instructions()
         self._move_crates()
 
     def _move_crates(self):
@@ -26,14 +26,30 @@ class CargoCrane:
                         crate_stacks.append([crate_str])
         return crate_stacks
 
-    def _get_directions(self) -> {list}:
-        return {'': self._data}
+    def _get_instructions(self) -> dict:
+        instruction_sentences = self._data[self._get_stack_endpoint_idx() + 2:]
+        instructions = {
+            'len': len(instruction_sentences),
+            'move': [],
+            'from': [],
+            'to': []
+        }
+        for instruction_sentence in instruction_sentences:
+            inst_spl = instruction_sentence.split()
+            instructions['move'].append(int(inst_spl[inst_spl.index('move') + 1]))
+            instructions['from'].append(int(inst_spl[inst_spl.index('from') + 1]))
+            instructions['to'].append(int(inst_spl[inst_spl.index('to') + 1]))
+        return instructions
 
     def _get_stack_endpoint_idx(self) -> int:
         for i, line in enumerate(self._data):
             if '1' in line:
                 return i
         return 0
+
+    @staticmethod
+    def _pos_to_idx(pos: int) -> int:
+        return pos - 1
 
 
 if __name__ == '__main__':
