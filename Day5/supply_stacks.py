@@ -3,20 +3,28 @@ from more_itertools import chunked
 
 class CargoCrane:
 
-    def __init__(self, filename):
+    def __init__(self, filename: str, model='9000'):
         with open(filename, 'r') as f:
             self._data = f.read().splitlines()
         self._stacks = self._get_stacks()
         self._commands = self._get_commands()
+        self._model = model
         self._move_crates()
-
-    def top_crate_join(self):
-        return ''.join([stack[-1] for stack in self._stacks])
 
     def _move_crates(self):
         for i in range(self._commands['len']):
-            for _ in range(self._commands['move'][i]):
-                self._stacks[self._commands['to'][i]-1].append(self._stacks[self._commands['from'][i]-1].pop(-1))
+            move_int = self._commands['move'][i]
+            from_idx = self._commands['from'][i]-1
+            to_idx = self._commands['to'][i]-1
+            if self._model == '9000':
+                for _ in range(move_int):
+                    self._stacks[to_idx].append(self._stacks[from_idx].pop(-1))
+            elif self._model == '9001':
+                self._stacks[to_idx] += self._stacks[from_idx][-move_int:]
+                self._stacks[from_idx] = self._stacks[from_idx][:-move_int]
+
+    def get_top_crates(self) -> str:
+        return ''.join([stack[-1] for stack in self._stacks])
 
     def _get_stacks(self) -> list:
         crate_rows = self._data[:self._get_stack_endpoint_idx()]
@@ -54,5 +62,7 @@ class CargoCrane:
 
 
 if __name__ == '__main__':
-    crane = CargoCrane('stacks_of_crates.txt')
-    print(f'Combination of top crates in each stack: {crane.top_crate_join()}')
+    crane1 = CargoCrane('stacks_of_crates.txt')
+    print(f'Top crates 9000: {crane1.get_top_crates()}')
+    crane2 = CargoCrane('stacks_of_crates.txt', model='9001')
+    print(f'Top crates 9001: {crane2.get_top_crates()}')
