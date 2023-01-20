@@ -1,4 +1,5 @@
 from operator import sub, add, lt, gt
+from typing import Tuple
 
 
 class Treetops:
@@ -8,15 +9,20 @@ class Treetops:
             self._data = [list(map(int, list(line))) for line in f.read().splitlines()]
         self._data_len = len(self._data)
 
-    def count_visible(self) -> int:
+    def count_visible_with_best_score(self) -> Tuple[int, int]:
         visibles = (len(self._data) - 1) * 4
+        best_scenic_score = 0
         for _i, line in enumerate(self._data[1:-1]):
             for _j, treetop in enumerate(line[1:-1]):
-                if self._is_visible(_i + 1, _j + 1, treetop):
+                visible, scenic_score = self._is_visible_with_score(_i + 1, _j + 1, treetop)
+                if visible:
                     visibles += 1
-        return visibles
+                if scenic_score > best_scenic_score:
+                    best_scenic_score = scenic_score
+        return visibles, best_scenic_score
 
-    def _is_visible(self, i: int, j: int, treetop: int) -> bool:
+    def _is_visible_with_score(self, i: int, j: int, treetop: int) -> Tuple[bool, int]:
+        scenic_score = 1
         side_map = {
             'top'  : {'axis': 'y', 'operator': sub, 'flag': True,
                       'counter': i, 'comparison': gt, 'endval': 0},
@@ -30,6 +36,7 @@ class Treetops:
         for side in side_map.keys():
             counter = side_map[side]['counter']
             operator = side_map[side]['operator']
+            tree_counter = 0
             while side_map[side]['comparison'](counter, side_map[side]['endval']):
                 if side_map[side]['axis'] == 'y':
                     next_treetop = self._data[operator(counter, 1)][j]
@@ -37,14 +44,15 @@ class Treetops:
                     next_treetop = self._data[i][operator(counter, 1)]
                 if treetop > next_treetop:
                     counter = operator(counter, 1)
+                    tree_counter += 1
                 else:
                     side_map[side]['flag'] = False
+                    tree_counter += 1
                     break
-            if side_map[side]['flag']:
-                break
-        return any([_dict['flag'] for _dict in side_map.values()])
+            scenic_score *= tree_counter
+        return any([_dict['flag'] for _dict in side_map.values()]), scenic_score
 
 
 if __name__ == '__main__':
     treetops = Treetops('treegrid.txt')
-    print(treetops.count_visible())
+    print(treetops.count_visible_with_best_score())
