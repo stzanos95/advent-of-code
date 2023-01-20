@@ -18,14 +18,14 @@ class Treetops:
 
     def _is_visible(self, i: int, j: int, treetop: int) -> bool:
         side_map = {
-            'top'  : {'axis': 'y', 'counter': i, 'flag': True,
-                      'operator': sub, 'comparison': gt, 'endval': 0},
-            'bot'  : {'axis': 'y', 'counter': i, 'flag': True,
-                      'operator': add, 'comparison': lt, 'endval': self._data_len - 1},
-            'left' : {'axis': 'x', 'counter': j, 'flag': True,
-                      'operator': sub, 'comparison': gt, 'endval': 0},
-            'right': {'axis': 'x', 'counter': j, 'flag': True,
-                      'operator': add, 'comparison': lt, 'endval': self._data_len - 1}
+            'top'  : {'axis': 'y', 'operator': sub, 'flag': True,
+                      'counter': i, 'comparison': gt, 'endval': 0},
+            'bot'  : {'axis': 'y', 'operator': add, 'flag': True,
+                      'counter': i, 'comparison': lt, 'endval': self._data_len - 1},
+            'left' : {'axis': 'x', 'operator': sub, 'flag': True,
+                      'counter': j, 'comparison': gt, 'endval': 0},
+            'right': {'axis': 'x', 'operator': add, 'flag': True,
+                      'counter': j, 'comparison': lt, 'endval': self._data_len - 1}
         }
         for side in side_map.keys():
             counter = side_map[side]['counter']
