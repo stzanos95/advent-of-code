@@ -1,89 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<!--
-
-
-
-
-Oh, hello!  Funny seeing you here.
-
-I appreciate your enthusiasm, but you aren't going to find much down here.
-There certainly aren't clues to any of the puzzles.  The best surprises don't
-even appear in the source until you unlock them for real.
-
-Please be careful with automated requests; I'm not a massive company, and I can
-only take so much traffic.  Please be considerate so that everyone gets to play.
-
-If you're curious about how Advent of Code works, it's running on some custom
-Perl code. Other than a few integrations (auth, analytics, social media), I
-built the whole thing myself, including the design, animations, prose, and all
-of the puzzles.
-
-The puzzles are most of the work; preparing a new calendar and a new set of
-puzzles each year takes all of my free time for 4-5 months. A lot of effort
-went into building this thing - I hope you're enjoying playing it as much as I
-enjoyed making it for you!
-
-If you'd like to hang out, I'm @ericwastl on Twitter.
-
-- Eric Wastl
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--->
 <body>
-<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2022/about">[About]</a></li><li><a href="/2022/events">[Events]</a></li><li><a href="https://teespring.com/stores/advent-of-code" target="_blank">[Shop]</a></li><li><a href="/2022/settings">[Settings]</a></li><li><a href="/2022/auth/logout">[Log Out]</a></li></ul></nav><div class="user">stzanos95 <span class="star-count">17*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="title-event-wrap"></span><a href="/2022">2022</a><span class="title-event-wrap"></span></h1><nav><ul><li><a href="/2022">[Calendar]</a></li><li><a href="/2022/support">[AoC++]</a></li><li><a href="/2022/sponsors">[Sponsors]</a></li><li><a href="/2022/leaderboard">[Leaderboard]</a></li><li><a href="/2022/stats">[Stats]</a></li></ul></nav></div></header>
-
-<div id="sidebar">
-<div id="sponsor"><div class="quiet">Our <a href="/2022/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="https://www.catawiki.com/en/p/757" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Catawiki</a> - Turn your passion into your career. Join us! bit.ly/join-cw</div></div>
-</div><!-->/sidebar-->
 
 <main>
 <article class="day-desc"><h2>--- Day 12: Hill Climbing Algorithm ---</h2><p>You try contacting the Elves using your <span title="When you look up the specs for your handheld device, every field just says &quot;plot&quot;.">handheld device</span>, but the river you're following must be too low to get a decent signal.</p>
@@ -109,8 +26,5 @@ abdefghi
 <p><em>What is the fewest steps required to move from your current position to the location that should get the best signal?</em></p>
 </article>
 </main>
-
-<!-- ga -->
-<!-- /ga -->
 </body>
 </html>
