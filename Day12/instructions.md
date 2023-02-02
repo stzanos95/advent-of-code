@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-<meta charset="utf-8"/>
-<title>Day 12 - Advent of Code 2022</title>
-<!--[if lt IE 9]><script src="/static/html5.js"></script><![endif]-->
-<link href='//fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'/>
-<link rel="stylesheet" type="text/css" href="/static/style.css?30"/>
-<link rel="stylesheet alternate" type="text/css" href="/static/highcontrast.css?0" title="High Contrast"/>
-<link rel="shortcut icon" href="/favicon.png"/>
-<script>window.addEventListener('click', function(e,s,r){if(e.target.nodeName==='CODE'&&e.detail===3){s=window.getSelection();s.removeAllRanges();r=document.createRange();r.selectNodeContents(e.target);s.addRange(r);}});</script>
-</head><!--
+<!--
 
 
 
@@ -92,7 +83,7 @@ If you'd like to hang out, I'm @ericwastl on Twitter.
 
 <div id="sidebar">
 <div id="sponsor"><div class="quiet">Our <a href="/2022/sponsors">sponsors</a> help make Advent of Code possible:</div><div class="sponsor"><a href="https://www.catawiki.com/en/p/757" target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Catawiki</a> - Turn your passion into your career. Join us! bit.ly/join-cw</div></div>
-</div><!--/sidebar-->
+</div><!-->/sidebar-->
 
 <main>
 <article class="day-desc"><h2>--- Day 12: Hill Climbing Algorithm ---</h2><p>You try contacting the Elves using your <span title="When you look up the specs for your handheld device, every field just says &quot;plot&quot;.">handheld device</span>, but the river you're following must be too low to get a decent signal.</p>
@@ -120,15 +111,6 @@ abdefghi
 </main>
 
 <!-- ga -->
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-69522494-1', 'auto');
-ga('set', 'anonymizeIp', true);
-ga('send', 'pageview');
-</script>
 <!-- /ga -->
 </body>
 </html>
